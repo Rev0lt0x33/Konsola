@@ -1,0 +1,12 @@
+D:\C\App\App\bin\Debug\App.exe.config
+D:\C\App\App\bin\Debug\App.exe
+D:\C\App\App\bin\Debug\App.pdb
+D:\C\App\App\obj\Debug\App.csproj.AssemblyReference.cache
+D:\C\App\App\obj\Debug\App.csproj.SuggestedBindingRedirects.cache
+D:\C\App\App\obj\Debug\App.Controlls.LogWindow.resources
+D:\C\App\App\obj\Debug\App.MainWindow.resources
+D:\C\App\App\obj\Debug\App.Properties.Resources.resources
+D:\C\App\App\obj\Debug\App.csproj.GenerateResource.cache
+D:\C\App\App\obj\Debug\App.csproj.CoreCompileInputs.cache
+D:\C\App\App\obj\Debug\App.exe
+D:\C\App\App\obj\Debug\App.pdb
