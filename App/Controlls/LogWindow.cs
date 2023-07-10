@@ -56,7 +56,7 @@ namespace App.Controlls
             exeProcess.StartInfo.RedirectStandardError = true;
             exeProcess.StartInfo.RedirectStandardOutput = true;
             exeProcess.StartInfo.UseShellExecute = false;
-            exeProcess.StartInfo.CreateNoWindow = false;
+            exeProcess.StartInfo.CreateNoWindow = true;
             exeProcess.EnableRaisingEvents = true;
             exeProcess.OutputDataReceived += new DataReceivedEventHandler(outputHandler); 
             exeProcess.ErrorDataReceived += new DataReceivedEventHandler(errorHandler);
