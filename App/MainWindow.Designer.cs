@@ -63,7 +63,7 @@ namespace App
             this.Name = "MainWindow";
             this.Text = "Konsola";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
-            this.Resize += new System.EventHandler(this.MainWindow_Resize);
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResumeLayout(false);
 
         }

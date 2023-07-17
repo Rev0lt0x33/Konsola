@@ -24,18 +24,12 @@ namespace App
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            logWindow1.onExit(sender, e); 
-        }
-
-        private void MainWindow_Resize(object sender, EventArgs e)
-        {
-            if(this.WindowState == FormWindowState.Minimized) 
-            {
-                Hide();
-                notifyIcon.Visible = true;
-                this.ShowInTaskbar = false;
-            }
+        {         
+            e.Cancel = true;
+            Hide();
+            notifyIcon.Visible = true;
+            this.ShowInTaskbar = false;
+                      
         }
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -46,6 +40,18 @@ namespace App
             this.ShowInTaskbar = true;
         }
 
-       
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            this.notifyIcon.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.notifyIcon.ContextMenuStrip.Items.Add("Zakońćz", null, this.NotifyMenuExit_Click);
+        }
+
+        private void NotifyMenuExit_Click(object sender, EventArgs e)
+        {
+            logWindow1.onExit(sender, e);
+            Application.Exit();
+        }
+
+
     }
 }

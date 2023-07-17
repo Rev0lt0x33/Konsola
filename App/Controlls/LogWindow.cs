@@ -28,7 +28,7 @@ namespace App.Controlls
 
         private void fileBox_Click(object sender, EventArgs e)
         {
-            openFile.Filter = "Exe Files (.exe)|*.exe|All Files (*.*)|*.*";
+            openFile.Filter = "Exe Files (.exe)|*.exe";
             openFile.FilterIndex = 1;
             if (openFile.ShowDialog() == DialogResult.OK)
             {
@@ -48,21 +48,30 @@ namespace App.Controlls
 
             lock(outputLock) if (exeProcess != null) return;
 
-            startButton.Enabled = false;
-            stopButton.Enabled = true;
 
-            exeProcess = new Process();
-            exeProcess.StartInfo.FileName = path;
-            exeProcess.StartInfo.RedirectStandardError = true;
-            exeProcess.StartInfo.RedirectStandardOutput = true;
-            exeProcess.StartInfo.UseShellExecute = false;
-            exeProcess.StartInfo.CreateNoWindow = false;
-            exeProcess.EnableRaisingEvents = true;
-            exeProcess.OutputDataReceived += new DataReceivedEventHandler(outputHandler); 
-            exeProcess.ErrorDataReceived += new DataReceivedEventHandler(errorHandler);
-            exeProcess.Exited += new EventHandler(onExit);
-            exeProcess.Start();
-            exeProcess.BeginOutputReadLine();
+            try
+            {
+                startButton.Enabled = false;
+                stopButton.Enabled = true;
+
+                exeProcess = new Process();
+                exeProcess.StartInfo.FileName = path;
+                exeProcess.StartInfo.RedirectStandardError = true;
+                exeProcess.StartInfo.RedirectStandardOutput = true;
+                exeProcess.StartInfo.UseShellExecute = false;
+                exeProcess.StartInfo.CreateNoWindow = true;
+                exeProcess.EnableRaisingEvents = true;
+                exeProcess.OutputDataReceived += new DataReceivedEventHandler(outputHandler);
+                exeProcess.ErrorDataReceived += new DataReceivedEventHandler(errorHandler);
+                exeProcess.Exited += new EventHandler(onExit);
+                exeProcess.Start();
+                exeProcess.BeginOutputReadLine();
+            }catch(Exception ex)
+            {               
+                MessageBox.Show(ex.ToString());
+            }
+
+            
             
             
 
