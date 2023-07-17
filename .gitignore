@@ -1,6 +1,7 @@
 **/obj
-**/Properties
 *.pdb
-*.config
 *.vsidx
 *.testlog
+**/.vs
+**/logs
+

@@ -35,7 +35,6 @@
             this.stopButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.saveButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +48,6 @@
             this.tableLayoutPanel1.Controls.Add(this.logBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.stopButton, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.clearButton, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.saveButton, 0, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -122,17 +120,6 @@
             // 
             this.openFile.FileName = "openFileDialog1";
             // 
-            // saveButton
-            // 
-            this.saveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveButton.Location = new System.Drawing.Point(3, 93);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(94, 24);
-            this.saveButton.TabIndex = 5;
-            this.saveButton.Text = "Zapisz";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
             // LogWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +142,5 @@
         private System.Windows.Forms.OpenFileDialog openFile;
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button saveButton;
     }
 }

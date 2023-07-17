@@ -20,6 +20,7 @@ namespace App.Controlls
         private StringBuilder output = new StringBuilder();
         private bool outputChanged = false;
         private object outputLock = new object();
+        private byte lines = 0;
 
         public LogWindow()
         {
@@ -70,11 +71,6 @@ namespace App.Controlls
             {               
                 MessageBox.Show(ex.ToString());
             }
-
-            
-            
-            
-
         }
 
         private void outputHandler(object sender, DataReceivedEventArgs e)
@@ -83,6 +79,13 @@ namespace App.Controlls
             lock (outputLock)
             {
                 if (sender != exeProcess) return;
+
+                if(lines == 255)
+                {
+                    output.Clear();
+                    lines = 0;
+                }
+                lines++;
                 output.AppendLine("[" + DateTime.Now.ToString("HH:mm:ss") +"] " +  e.Data);
                 if (outputChanged) return;
                 outputChanged = true;
@@ -93,12 +96,12 @@ namespace App.Controlls
         private void onOutputChanged()
         {
             lock (outputLock)
-            {
-
+            {               
                 logBox.Text = output.ToString();
                 logBox.SelectionLength = output.Length;
                 logBox.ScrollToCaret();
                 outputChanged = false;
+                saveLog();
             }            
         }
 
@@ -144,22 +147,29 @@ namespace App.Controlls
             onExit(sender, e);
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+
+
+        private void saveLog()
         {
-            lock(outputLock)
+            if (!Directory.Exists("logs/"))
             {
-                if (!Directory.Exists("logs/")) Directory.CreateDirectory("logs");
-                StringBuilder path = new StringBuilder();
-                path.Append("logs/" + DateTime.Now.ToString("dd-MM-HH-mm-ss") + ".txt");
-                using (StreamWriter writer = new StreamWriter(path.ToString())) 
+                Directory.CreateDirectory("logs");
+            }
+                
+            StringBuilder logPath = new StringBuilder();
+            logPath.Append("logs/" + DateTime.Now.ToString("dd-MM") + ".txt");
+
+
+            lock (outputLock)
+            {
+                using (StreamWriter writer = new StreamWriter(logPath.ToString(), true))
                 {
-                    writer.Write(output.ToString());
+                    writer.WriteLine(output.ToString());
                 }
-                output.AppendLine("Zapisano do pliku: " + path.ToString());
-                outputChanged = true;
-                BeginInvoke(new Action(onOutputChanged));
             }
 
         }
+    
+    
     }
 }
