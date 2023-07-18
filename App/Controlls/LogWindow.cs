@@ -23,8 +23,17 @@ namespace App.Controlls
         private byte lines = 0;
 
         public LogWindow()
-        {
+        {           
             InitializeComponent();
+            Settings settings = new Settings();            
+            Dictionary<string,string> settingsDict = settings.loadFromFile();
+            if (settingsDict["autorun"].Equals("True")) {
+                path = settingsDict["path"];
+                startButton_Click(null, null);
+                fileBox.Text = path;               
+            }
+            
+            
         }
 
         private void fileBox_Click(object sender, EventArgs e)
@@ -169,7 +178,11 @@ namespace App.Controlls
             }
 
         }
-    
-    
+
+        private void configButton_Click(object sender, EventArgs e)
+        {
+            Form ConfigForm = new ConfigWindow();
+            ConfigForm.Show();
+        }
     }
 }

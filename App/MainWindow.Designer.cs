@@ -35,7 +35,7 @@ namespace App
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.logWindow1 = new App.Controlls.LogWindow();
+            this.logWindow2 = new App.Controlls.LogWindow();
             this.SuspendLayout();
             // 
             // notifyIcon
@@ -45,20 +45,20 @@ namespace App
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
-            // logWindow1
+            // logWindow2
             // 
-            this.logWindow1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logWindow1.Location = new System.Drawing.Point(0, 0);
-            this.logWindow1.Name = "logWindow1";
-            this.logWindow1.Size = new System.Drawing.Size(800, 450);
-            this.logWindow1.TabIndex = 0;
+            this.logWindow2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logWindow2.Location = new System.Drawing.Point(0, 0);
+            this.logWindow2.Name = "logWindow2";
+            this.logWindow2.Size = new System.Drawing.Size(800, 450);
+            this.logWindow2.TabIndex = 0;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.logWindow1);
+            this.Controls.Add(this.logWindow2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "Konsola";
@@ -70,8 +70,8 @@ namespace App
 
         #endregion
 
-        private Controlls.LogWindow logWindow1;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private Controlls.LogWindow logWindow2;
     }
 }
 

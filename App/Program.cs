@@ -12,6 +12,10 @@ namespace App
         /// <summary>
         /// Główny punkt wejścia dla aplikacji.
         /// </summary>
+        /// 
+
+        
+
         [STAThread]
         static void Main()
         {
@@ -20,7 +24,7 @@ namespace App
                 MessageBox.Show("Aplikacja już działa");
                 return;
             }
-
+            
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -45,7 +49,7 @@ namespace App
         }
 
 
-
+        
 
 
 
