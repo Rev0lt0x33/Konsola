@@ -16,17 +16,18 @@ namespace App.Controlls
     public partial class ConfigMenu : UserControl
     {
         private Dictionary<string, string> settingsDict = new Dictionary<string, string>();
-        private Settings settings;
+        private Settings settings = new Settings();
         
         public ConfigMenu()
         {
-            settings = new Settings();
+           
             settingsDict = settings.loadFromFile();
             InitializeComponent();
-
-            if (settingsDict["autorun"].Equals("True")) autorunConfigurationBox.Checked = true;
-            if (settingsDict["automin"].Equals("True")) autominConfigurationBox.Checked = true;
-            if (settingsDict["path"] != null) fileConfigurationBox.Text = settingsDict["path"];
+           
+                if (settingsDict["autorun"].Equals("True")) autorunConfigurationBox.Checked = true;
+                if (settingsDict["automin"].Equals("True")) autominConfigurationBox.Checked = true;
+                if (settingsDict["path"] != null) fileConfigurationBox.Text = settingsDict["path"];
+           
         }
 
 

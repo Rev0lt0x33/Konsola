@@ -26,12 +26,12 @@ namespace App.Controlls
         {           
             InitializeComponent();
             Settings settings = new Settings();            
-            Dictionary<string,string> settingsDict = settings.loadFromFile();
-            if (settingsDict["autorun"].Equals("True")) {
-                path = settingsDict["path"];
-                startButton_Click(null, null);
+         //   Dictionary<string,string> settingsDict = settings.loadFromFile();
+          //  if (settingsDict["autorun"].Equals("True")) {
+           //     path = settingsDict["path"];
+          //      startButton_Click(null, null);
                 fileBox.Text = path;               
-            }
+          //  }
             
             
         }
